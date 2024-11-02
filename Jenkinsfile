@@ -5,7 +5,6 @@ pipeline {
         DOCKERHUB_REPO = 'isasubhi/my-nginx-container'
         KUBE_DEPLOYMENT_NAME = 'nginx-deployment'
         NAMESPACE = 'my-ns'
-        SVC_TYPE = 'ClusterIP'
         GIT_REPO = 'git@github.com:IsaSubhi/DevOps_Project.git'
         VERSION = '1.2'
     }
@@ -52,7 +51,7 @@ pipeline {
                     }
                     def SvcExists = sh(script: "kubectl get service ${KUBE_DEPLOYMENT_NAME}-service --namespace=${NAMESPACE} || echo 'not found'", returnStdout: true).trim()
                     if (SvcExists.contains("not found")) {
-                        sh "kubectl expose deployment ${KUBE_DEPLOYMENT_NAME} --name=${KUBE_DEPLOYMENT_NAME}-service --namespace=${NAMESPACE} --port=30006 --target-port=80 --type=${SVC_TYPE}"
+                        sh "kubectl expose deployment ${KUBE_DEPLOYMENT_NAME} --name=${KUBE_DEPLOYMENT_NAME}-service --namespace=${NAMESPACE} --port=30006 --target-port=80"
                     } else {
                         echo "Service ${KUBE_DEPLOYMENT_NAME}-service already exists in namespace ${NAMESPACE}."
                     }
