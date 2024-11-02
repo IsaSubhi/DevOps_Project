@@ -7,7 +7,7 @@ pipeline {
         NAMESPACE = 'my-ns'
         SVC_TYPE = 'ClusterIP'
         GIT_REPO = 'git@github.com:IsaSubhi/DevOps_Project.git'
-        VERSION = '1.1'
+        VERSION = '1.2'
     }
 
     stages {
