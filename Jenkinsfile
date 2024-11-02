@@ -5,7 +5,7 @@ pipeline {
         DOCKERHUB_REPO = 'isasubhi/my-nginx-container'
         KUBE_DEPLOYMENT_NAME = 'nginx-deployment'
         NAMESPACE = 'my-ns'
-        GIT_REPO = 'git@github.com:IsaSubhi/DevOps_Project.git'
+        GIT_REPO = 'https://github.com/IsaSubhi/DevOps_Project.git'
         VERSION = '1.2'
     }
 
